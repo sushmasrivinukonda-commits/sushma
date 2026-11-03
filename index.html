@@ -47,17 +47,20 @@
       font-family: 'Outfit', sans-serif;
     }
 
-    /* ==================== BACKGROUND SLIDESHOW ==================== */
+    /* ==================== RESPONSIVE BACKGROUND ==================== */
     #bg-slideshow {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
+      width: 100dvw;
       height: 100vh;
+      height: 100dvh;
       z-index: -2;
+      background-image: url('profile.jpg'); 
       background-size: cover;
-      background-position: center;
-      transition: background-image 1.5s ease-in-out;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
     .bg-overlay {
@@ -65,10 +68,13 @@
       top: 0;
       left: 0;
       width: 100vw;
+      width: 100dvw;
       height: 100vh;
+      height: 100dvh;
       z-index: -1;
       background: radial-gradient(circle at center, rgba(7, 9, 19, 0.8) 0%, rgba(7, 9, 19, 0.96) 100%);
       backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
 
     /* ==================== SECTIONS & GLASS CARDS ==================== */
@@ -133,6 +139,7 @@
       padding: 0 4%;
       background: rgba(7, 9, 19, 0.88);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
     }
@@ -184,8 +191,10 @@
       right: -100%;
       width: 290px;
       height: 100vh;
+      height: 100dvh;
       background: rgba(15, 23, 42, 0.96);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-left: 1px solid var(--glass-border);
       display: flex;
       flex-direction: column;
@@ -864,7 +873,7 @@
           Interested in working with me? Have an opportunity in Robotics, STEM Education, Computer Science or Coding? Send a message below.
         </p>
 
-        <!-- Replace action URL with your Formspree/EmailJS endpoint ID -->
+        <!-- Formspree Endpoint Configuration -->
         <form id="hiring-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-group">
             <label for="name">Full Name *</label>
@@ -881,31 +890,16 @@
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 00000 00000">
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX">
             </div>
           </div>
           <div class="form-group">
-            <label for="position">Job Position / Opportunity</label>
-            <input type="text" id="position" name="position" class="form-control" placeholder="e.g., STEM Trainer / Educator">
-          </div>
-          <div class="form-group">
-            <label for="type">Type of Opportunity</label>
-            <select id="type" name="opportunity_type" class="form-control" style="background: #0f172a;">
-              <option value="Teaching">Teaching</option>
-              <option value="Robotics">Robotics</option>
-              <option value="STEM Education">STEM Education</option>
-              <option value="Computer Science">Computer Science</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" rows="3" class="form-control" required placeholder="Your message details..."></textarea>
+            <label for="message">Message / Opportunity Details *</label>
+            <textarea id="message" name="message" rows="4" class="form-control" required placeholder="Describe the role or teaching opportunity..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">
-            <i class="fas fa-paper-plane"></i> Submit Application
+            <i class="fas fa-paper-plane"></i> Send Message
           </button>
-          <div id="form-status" style="margin-top: 12px; font-size: 0.9rem; text-align: center; font-weight: 500;"></div>
         </form>
       </div>
     </div>
@@ -914,76 +908,17 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div>
-        <h3 style="color: #fff; font-size: 1.2rem;">Sushmasri Vinikonda</h3>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Robotics & STEM Educator | Computer Science Educator</p>
-      </div>
-      <div style="display: flex; gap: 1.2rem; font-size: 0.9rem;">
-        <a href="mailto:sushmasrivinukonda@gmail.com" style="color: var(--text-muted); text-decoration: none;">Email</a>
-        <a href="tel:+919440234145" style="color: var(--text-muted); text-decoration: none;">Phone</a>
-        <a href="https://linkedin.com" target="_blank" style="color: var(--text-muted); text-decoration: none;">LinkedIn</a>
-      </div>
+      <a href="#home" class="logo">SUSHMASRI<span>.V</span></a>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Robotics, STEM & Computer Science Educator</p>
     </div>
     <div class="copyright">
-      &copy; 2026 Sushmasri Vinikonda. All Rights Reserved.
+      &copy; 2026 Sushmasri Vinikonda. All rights reserved. Built for GitHub Pages.
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
+  <!-- JavaScript for Interactive Features -->
   <script>
-    // 1. Dynamic Background Image Slideshow (Changes every 10 seconds)
-    const bgImages = [
-      'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=1920&q=80', // Coding
-      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1920&q=80', // Robotics
-      'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1920&q=80', // Electronics / Circuits
-      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80', // STEM Learning
-      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920&q=80'  // Classroom Tech
-    ];
-
-    let currentBgIndex = 0;
-    const bgElement = document.getElementById('bg-slideshow');
-
-    function changeBackgroundImage() {
-      bgElement.style.backgroundImage = `url('${bgImages[currentBgIndex]}')`;
-      currentBgIndex = (currentBgIndex + 1) % bgImages.length;
-    }
-    changeBackgroundImage();
-    setInterval(changeBackgroundImage, 10000);
-
-    // 2. Typing Effect for Introduction Titles
-    const titles = [
-      "ROBOTICS & STEM EDUCATOR",
-      "COMPUTER SCIENCE EDUCATOR",
-      "CODING INSTRUCTOR",
-      "TECHNOLOGY ENTHUSIAST"
-    ];
-    let titleIndex = 0;
-    let charIndex = 0;
-    const animatedTextEl = document.getElementById('animated-text');
-
-    function typeTitle() {
-      if (charIndex < titles[titleIndex].length) {
-        animatedTextEl.textContent += titles[titleIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeTitle, 75);
-      } else {
-        setTimeout(eraseTitle, 2000);
-      }
-    }
-
-    function eraseTitle() {
-      if (charIndex > 0) {
-        animatedTextEl.textContent = titles[titleIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(eraseTitle, 35);
-      } else {
-        titleIndex = (titleIndex + 1) % titles.length;
-        setTimeout(typeTitle, 400);
-      }
-    }
-    document.addEventListener('DOMContentLoaded', typeTitle);
-
-    // 3. Hamburger Menu & Mobile Navigation Toggle
+    // Mobile Navigation Toggle
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -998,66 +933,49 @@
       });
     });
 
-    // 4. Scroll Highlight for Sticky Navigation
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-links a');
+    // Typewriter Effect for Hero Subtitle
+    const titles = [
+      "Robotics & STEM Educator",
+      "Computer Science Specialist",
+      "Coding & Electronics Instructor",
+      "Interactive Learning Enthusiast"
+    ];
+    let titleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typedTextElement = document.getElementById('animated-text');
 
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
+    function typeWriter() {
+      const currentTitle = titles[titleIndex];
+      if (isDeleting) {
+        typedTextElement.textContent = currentTitle.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedTextElement.textContent = currentTitle.substring(0, charIndex + 1);
+        charIndex++;
+      }
 
-      navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href').includes(current)) {
-          item.classList.add('active');
-        }
-      });
-    });
+      let typingSpeed = isDeleting ? 50 : 100;
 
-    // 5. Copy Phone Number Functionality
-    function copyPhone(phoneNumber) {
-      navigator.clipboard.writeText(phoneNumber).then(() => {
-        alert("Phone number copied to clipboard: " + phoneNumber);
-      }).catch(err => {
-        console.error("Copy failed: ", err);
+      if (!isDeleting && charIndex === currentTitle.length) {
+        typingSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+        typingSpeed = 500;
+      }
+
+      setTimeout(typeWriter, typingSpeed);
+    }
+    document.addEventListener("DOMContentLoaded", typeWriter);
+
+    // Copy Phone Number Function
+    function copyPhone(number) {
+      navigator.clipboard.writeText(number).then(() => {
+        alert("Phone number copied to clipboard: " + number);
       });
     }
-
-    // 6. Form Submission Validation & Handling
-    const hiringForm = document.getElementById('hiring-form');
-    const formStatus = document.getElementById('form-status');
-
-    hiringForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const formData = new FormData(hiringForm);
-      
-      formStatus.style.color = 'var(--accent-cyan)';
-      formStatus.textContent = 'Sending application...';
-
-      try {
-        const response = await fetch(hiringForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          formStatus.style.color = '#10b981';
-          formStatus.textContent = 'Thank you! Your application message has been sent successfully.';
-          hiringForm.reset();
-        } else {
-          throw new Error('Submission error');
-        }
-      } catch (error) {
-        formStatus.style.color = '#ef4444';
-        formStatus.textContent = 'Submission failed. Please check your internet connection or email directly.';
-      }
-    });
   </script>
 </body>
 </html>
