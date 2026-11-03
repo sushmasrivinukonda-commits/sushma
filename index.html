@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sushmasri Vinikonda | Robotics & STEM Educator</title>
+  <meta name="description" content="Personal portfolio website of Sushmasri Vinikonda - Robotics, STEM, Computer Science, and Coding Educator.">
+  
+  <!-- Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==================== GLOBAL STYLES & VARIABLES ==================== */
+    :root {
+      --bg-dark: #070913;
+      --navy-card: rgba(15, 23, 42, 0.78);
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glow-blue: rgba(59, 130, 246, 0.35);
+      --glow-cyan: rgba(6, 182, 212, 0.35);
+      --nav-height: 75px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .logo {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* ==================== BACKGROUND SLIDESHOW ==================== */
+    #bg-slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1.5s ease-in-out;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(circle at center, rgba(7, 9, 19, 0.8) 0%, rgba(7, 9, 19, 0.96) 100%);
+      backdrop-filter: blur(5px);
+    }
+
+    /* ==================== SECTIONS & GLASS CARDS ==================== */
+    section {
+      padding: 100px 8%;
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      border-radius: 2px;
+    }
+
+    .glass-card {
+      background: var(--navy-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 14px 40px var(--glow-cyan);
+    }
+
+    /* ==================== NAVIGATION ==================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4%;
+      background: rgba(7, 9, 19, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-cyan);
+      background: rgba(6, 182, 212, 0.1);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 290px;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(20px);
+      border-left: 1px solid var(--glass-border);
+      display: flex;
+      flex-direction: column;
+      padding: 90px 2rem 2rem;
+      gap: 1rem;
+      transition: right 0.4s ease;
+      z-index: 999;
+    }
+
+    .mobile-nav.open {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-cyan);
+    }
+
+    /* ==================== BUTTONS ==================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: #fff;
+      box-shadow: 0 4px 18px var(--glow-blue);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(6, 182, 212, 0.12);
+      color: #fff;
+    }
+
+    /* ==================== HOME SECTION ==================== */
+    #home {
+      padding-top: calc(var(--nav-height) + 30px);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .animated-title {
+      font-size: 1.3rem;
+      color: var(--accent-cyan);
+      height: 38px;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-img-frame {
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      padding: 7px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      box-shadow: 0 0 35px var(--glow-cyan);
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #0f172a;
+    }
+
+    /* ==================== GRIDS & SKILLS ==================== */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+    .skill-card h4 {
+      color: var(--accent-cyan);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    /* ==================== TIMELINE ==================== */
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--accent-blue);
+      padding-left: 24px;
+      margin-left: 10px;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* ==================== CONTACT & HIRE FORM ==================== */
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-item i {
+      font-size: 1.4rem;
+      color: var(--accent-cyan);
+      width: 30px;
+    }
+
+    .contact-action-btn {
+      margin-left: auto;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      cursor: pointer;
+      border: 1px solid var(--glass-border);
+      transition: background 0.3s;
+    }
+
+    .contact-action-btn:hover {
+      background: var(--accent-blue);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: rgba(7, 9, 19, 0.96);
+      padding: 40px 8% 25px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+    }
+
+    /* ==================== RESPONSIVE MEDIA QUERIES ==================== */
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .hero-container { grid-template-columns: 1fr; text-align: center; }
+      .hero-image-wrapper { order: -1; }
+      .hero-btns { justify-content: center; }
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .skill-card[style*="grid-column"] { grid-column: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Background Slideshow -->
+  <div id="bg-slideshow"></div>
+  <div class="bg-overlay"></div>
+
+  <!-- Sticky Top Navigation -->
+  <header>
+    <a href="#home" class="logo">SUSHMASRI<span>.V</span></a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#robotics">Robotics</a></li>
+      <li><a href="#strengths">Strengths</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Mobile Side Navigation Panel -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About Me</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#education" class="mobile-link">Education</a>
+    <a href="#certifications" class="mobile-link">Certifications</a>
+    <a href="#teaching" class="mobile-link">Teaching Expertise</a>
+    <a href="#robotics" class="mobile-link">Robotics & Projects</a>
+    <a href="#strengths" class="mobile-link">Strengths</a>
+    <a href="#contact" class="mobile-link">Contact Me</a>
+  </div>
+
+  <!-- 1. Home / Introduction Section -->
+  <section id="home">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1 style="color: #fff;">VINIKONDA<br><span style="color: var(--accent-cyan);">SUSHMASRI</span></h1>
+        <div class="animated-title" id="animated-text"></div>
+        <p>
+          I am a dedicated Computer Science and STEM Educator with an M.Sc. in Computer Science and a strong foundation in technology education, digital tools, and practical learning. I enjoy making complex technical concepts simple through interactive demonstrations, creative activities, and hands-on learning experiences.
+        </p>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">
+          Familiar with Arduino, micro:bit, MakeCode, Scratch, and Tinkercad, alongside core programming, robotics, and digital learning platforms. Passionate about helping students explore technology and build innovative ideas.
+        </p>
+        <div class="hero-btns">
+          <a href="#about" class="btn btn-primary"><i class="fas fa-compass"></i> Explore My Portfolio</a>
+          <a href="#hire-me" class="btn btn-secondary"><i class="fas fa-briefcase"></i> Hire Me</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-img-frame">
+          <img src="profile.jpg" alt="Sushmasri Vinikonda" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. About Me Section -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="grid-2">
+      <div class="glass-card">
+        <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Educational & Teaching Vision</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          Holding an M.Sc. in Computer Science, my professional focus bridges advanced computing concepts with practical, student-centered STEM education.
+        </p>
+        <p style="color: var(--text-muted);">
+          I specialize in interactive demonstrations and practical hardware/software exploration. My core objective is to cultivate analytical thinking, digital literacy, and creative problem-solving skills in young learners through modern technology tools.
+        </p>
+      </div>
+      <div class="grid-2" style="gap: 1rem;">
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 10px;"></i>
+          <h4>M.Sc. CS</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Computer Science Master's</p>
+        </div>
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-microchip" style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 10px;"></i>
+          <h4>STEM Specialist</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Robotics & Electronics</p>
+        </div>
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-laptop-code" style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 10px;"></i>
+          <h4>Coding Instructor</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Block & Text Coding</p>
+        </div>
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-users" style="font-size: 2rem; color: #10b981; margin-bottom: 10px;"></i>
+          <h4>Student-Centered</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Practical Learning</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Technical & Professional Skills Section -->
+  <section id="skills">
+    <h2 class="section-title">Skills & Technical Capabilities</h2>
+    <div class="grid-3">
+      <div class="glass-card skill-card">
+        <h4><i class="fas fa-robot"></i> Robotics & Electronics</h4>
+        <div class="skill-tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">micro:bit</span>
+          <span class="tag">Sensors</span>
+          <span class="tag">Motors</span>
+          <span class="tag">Servo Motors</span>
+          <span class="tag">Simple Circuits</span>
+          <span class="tag">Hardware Troubleshooting</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card">
+        <h4><i class="fas fa-cubes"></i> Programming & Creative Tech</h4>
+        <div class="skill-tags">
+          <span class="tag">Scratch</span>
+          <span class="tag">MakeCode</span>
+          <span class="tag">Arduino IDE</span>
+          <span class="tag">Tinkercad</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card">
+        <h4><i class="fas fa-code"></i> Computer Science</h4>
+        <div class="skill-tags">
+          <span class="tag">Core Java</span>
+          <span class="tag">SQL</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Web Technologies</span>
+          <span class="tag">Cloud Computing</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card">
+        <h4><i class="fas fa-desktop"></i> Digital Tools</h4>
+        <div class="skill-tags">
+          <span class="tag">Google Workspace</span>
+          <span class="tag">MS Office</span>
+          <span class="tag">Online Teaching Tools</span>
+          <span class="tag">Smart Classroom Tech</span>
+        </div>
+      </div>
+      <div class="glass-card skill-card" style="grid-column: span 2;">
+        <h4><i class="fas fa-chalkboard-teacher"></i> Teaching Skills</h4>
+        <div class="skill-tags">
+          <span class="tag">Live Online Classes</span>
+          <span class="tag">Demo Classes</span>
+          <span class="tag">Hands-on Demonstrations</span>
+          <span class="tag">Student-Centered Learning</span>
+          <span class="tag">Lesson Planning</span>
+          <span class="tag">Mentoring</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Professional Experience Section -->
+  <section id="experience">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="timeline" style="max-width: 850px; margin: 0 auto;">
+      <div class="timeline-item">
+        <div class="glass-card">
+          <div class="timeline-date">September 2023 – August 2024</div>
+          <h3 style="color: #fff;">Media Analyst</h3>
+          <h4 style="color: var(--accent-cyan); font-weight: 500; margin-bottom: 1rem;">Tagfact Services Pvt. Ltd.</h4>
+          <ul style="color: var(--text-muted); padding-left: 20px; font-size: 0.95rem; line-height: 1.8;">
+            <li>Monitored and analyzed media coverage across digital platforms.</li>
+            <li>Prepared analytical reports and actionable insights for clients.</li>
+            <li>Collaborated on Key Opinion Leader (KOL) and social-media intelligence projects.</li>
+            <li>Collected and optimized data from Twitter, Facebook, LinkedIn, and online sources.</li>
+            <li>Supported data-driven decision-making and communication strategies.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Education Section -->
+  <section id="education">
+    <h2 class="section-title">Educational Qualifications</h2>
+    <div class="grid-2">
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h3 style="color: #fff;">M.Sc. – Computer Science</h3>
+            <p style="color: var(--accent-cyan);">Sathavahana University</p>
+          </div>
+          <span class="tag" style="background: var(--accent-blue); color: #fff; font-weight: 700;">78%</span>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 12px; font-size: 0.9rem;">Year of Passing: 2025</p>
+      </div>
+
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h3 style="color: #fff;">B.Sc.</h3>
+            <p style="color: var(--accent-cyan);">Sathavahana University</p>
+          </div>
+          <span class="tag" style="background: var(--accent-blue); color: #fff; font-weight: 700;">87%</span>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 12px; font-size: 0.9rem;">Year of Passing: 2023</p>
+      </div>
+
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h3 style="color: #fff;">Intermediate</h3>
+            <p style="color: var(--accent-cyan);">Alphores Junior College</p>
+          </div>
+          <span class="tag" style="background: var(--accent-blue); color: #fff; font-weight: 700;">97%</span>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 12px; font-size: 0.9rem;">Year of Passing: 2020</p>
+      </div>
+
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h3 style="color: #fff;">SSC</h3>
+            <p style="color: var(--accent-cyan);">Krishnaveni E-Techno School</p>
+          </div>
+          <span class="tag" style="background: var(--accent-blue); color: #fff; font-weight: 700;">90%</span>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 12px; font-size: 0.9rem;">Year of Passing: 2018</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Certifications Section -->
+  <section id="certifications">
+    <h2 class="section-title">Certifications</h2>
+    <div class="grid-2">
+      <div class="glass-card" style="display: flex; gap: 1.5rem; align-items: center;">
+        <i class="fas fa-certificate" style="font-size: 2.5rem; color: var(--accent-purple);"></i>
+        <div>
+          <h3 style="font-size: 1.1rem; color: #fff;">Core Java, Web Technologies & SQL</h3>
+          <p style="color: var(--accent-cyan); font-size: 0.9rem;">JSpiders</p>
+        </div>
+      </div>
+      <div class="glass-card" style="display: flex; gap: 1.5rem; align-items: center;">
+        <i class="fas fa-cloud-upload-alt" style="font-size: 2.5rem; color: var(--accent-cyan);"></i>
+        <div>
+          <h3 style="font-size: 1.1rem; color: #fff;">Cloud Computing</h3>
+          <p style="color: var(--accent-cyan); font-size: 0.9rem;">Telangana Academy for Skill and Knowledge (TASK)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Teaching Expertise Section -->
+  <section id="teaching">
+    <h2 class="section-title">Teaching & Educational Expertise</h2>
+    <div class="grid-2">
+      <div class="glass-card">
+        <h3 style="color: var(--accent-cyan); margin-bottom: 1.2rem;"><i class="fas fa-book-reader"></i> Core Instructional Strengths</h3>
+        <ul style="color: var(--text-muted); padding-left: 20px; line-height: 1.8; font-size: 0.95rem;">
+          <li>Computer Science instruction and practical laboratory guidance.</li>
+          <li>Digital literacy and technology integration across modern curricula.</li>
+          <li>Activity-based and student-centered learning methodologies.</li>
+          <li>Explaining complex technical concepts in simple, practical, and student-friendly language.</li>
+          <li>Assessment preparation and individual student mentoring.</li>
+          <li>Smart classroom and educational technology utilization.</li>
+        </ul>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: var(--accent-purple); margin-bottom: 1.2rem;"><i class="fas fa-laptop-house"></i> Interactive & Online Learning</h3>
+        <ul style="color: var(--text-muted); padding-left: 20px; line-height: 1.8; font-size: 0.95rem;">
+          <li>Hands-on Robotics and STEM demonstrations using Arduino, micro:bit, Scratch, Tinkercad, and MakeCode.</li>
+          <li>Fully prepared to deliver live online classes and engaging demo sessions for school students.</li>
+          <li>Structured lesson planning designed to inspire tech curiosity and problem-solving.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Robotics & STEM Teaching Readiness Section -->
+  <section id="robotics">
+    <h2 class="section-title">Robotics & STEM Teaching Readiness</h2>
+    <div class="glass-card" style="text-align: center; max-width: 900px; margin: 0 auto; padding: 2.5rem;">
+      <div style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 1.2rem; display: flex; justify-content: center; gap: 20px;">
+        <i class="fas fa-robot"></i>
+        <i class="fas fa-microchip"></i>
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <h3 style="margin-bottom: 1rem; color: #fff;">Prepared for Live Demonstrations & Online Teaching</h3>
+      <p style="color: var(--text-muted); max-width: 750px; margin: 0 auto 1.8rem; font-size: 1rem; line-height: 1.7;">
+        Prepared to conduct live online robotics and STEM learning sessions for school students. Comfortable with demonstration-led teaching, hands-on learning, and practical project explanations using online teaching platforms, Arduino boards, sensors, electronic circuits, and block-coding environments.
+      </p>
+      <div class="skill-tags" style="justify-content: center;">
+        <span class="tag">Arduino Hardware</span>
+        <span class="tag">Tinkercad Circuits</span>
+        <span class="tag">micro:bit</span>
+        <span class="tag">Sensor Modules</span>
+        <span class="tag">Live Class Readiness</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Strengths Section -->
+  <section id="strengths">
+    <h2 class="section-title">Strengths</h2>
+    <div class="grid-3">
+      <div class="glass-card" style="text-align: center;">
+        <i class="fas fa-comments" style="font-size: 2.2rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.1rem;">Excellent Communication</h3>
+      </div>
+      <div class="glass-card" style="text-align: center;">
+        <i class="fas fa-brain" style="font-size: 2.2rem; color: var(--accent-purple); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.1rem;">Analytical Thinking</h3>
+      </div>
+      <div class="glass-card" style="text-align: center;">
+        <i class="fas fa-lightbulb" style="font-size: 2.2rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.1rem;">Problem Solving</h3>
+      </div>
+      <div class="glass-card" style="text-align: center;">
+        <i class="fas fa-sync-alt" style="font-size: 2.2rem; color: #10b981; margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.1rem;">Adaptability</h3>
+      </div>
+      <div class="glass-card" style="text-align: center;">
+        <i class="fas fa-user-shield" style="font-size: 2.2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.1rem;">Leadership</h3>
+      </div>
+      <div class="glass-card" style="text-align: center;">
+        <i class="fas fa-smile-beam" style="font-size: 2.2rem; color: #ec4899; margin-bottom: 1rem;"></i>
+        <h3 style="font-size: 1.1rem;">Positive Attitude & Continuous Learning</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="grid-2">
+      <div class="glass-card">
+        <h3 style="margin-bottom: 1.5rem; color: var(--accent-cyan);">Get In Touch</h3>
+        <div class="contact-info-list">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Phone Number</p>
+              <a href="tel:+919440234145" style="color: #fff; text-decoration: none; font-weight: 500;">+91 9440234145</a>
+            </div>
+            <button class="contact-action-btn" onclick="copyPhone('+919440234145')">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Email Address</p>
+              <a href="mailto:sushmasrivinukonda@gmail.com" style="color: #fff; text-decoration: none; font-weight: 500;">sushmasrivinukonda@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">LinkedIn</p>
+              <a href="https://linkedin.com" target="_blank" style="color: #fff; text-decoration: none; font-weight: 500;">Connect on LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="Sushmasri_Vinikonda_Resume.pdf" download class="btn btn-secondary">
+            <i class="fas fa-file-download"></i> Download Resume
+          </a>
+          <a href="#hire-me" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Hire Me
+          </a>
+        </div>
+      </div>
+
+      <!-- 11. Hire Me Section Form -->
+      <div class="glass-card" id="hire-me">
+        <h3 style="color: var(--accent-purple); margin-bottom: 0.4rem;">Let's Work Together</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Interested in working with me? Have an opportunity in Robotics, STEM Education, Computer Science or Coding? Send a message below.
+        </p>
+
+        <!-- Replace action URL with your Formspree/EmailJS endpoint ID -->
+        <form id="hiring-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" class="form-control" required placeholder="Your Full Name">
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Organization Name</label>
+            <input type="text" id="company" name="company" class="form-control" placeholder="School or Company Name">
+          </div>
+          <div class="grid-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" class="form-control" required placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 00000 00000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="position">Job Position / Opportunity</label>
+            <input type="text" id="position" name="position" class="form-control" placeholder="e.g., STEM Trainer / Educator">
+          </div>
+          <div class="form-group">
+            <label for="type">Type of Opportunity</label>
+            <select id="type" name="opportunity_type" class="form-control" style="background: #0f172a;">
+              <option value="Teaching">Teaching</option>
+              <option value="Robotics">Robotics</option>
+              <option value="STEM Education">STEM Education</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="3" class="form-control" required placeholder="Your message details..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> Submit Application
+          </button>
+          <div id="form-status" style="margin-top: 12px; font-size: 0.9rem; text-align: center; font-weight: 500;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3 style="color: #fff; font-size: 1.2rem;">Sushmasri Vinikonda</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Robotics & STEM Educator | Computer Science Educator</p>
+      </div>
+      <div style="display: flex; gap: 1.2rem; font-size: 0.9rem;">
+        <a href="mailto:sushmasrivinukonda@gmail.com" style="color: var(--text-muted); text-decoration: none;">Email</a>
+        <a href="tel:+919440234145" style="color: var(--text-muted); text-decoration: none;">Phone</a>
+        <a href="https://linkedin.com" target="_blank" style="color: var(--text-muted); text-decoration: none;">LinkedIn</a>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 Sushmasri Vinikonda. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // 1. Dynamic Background Image Slideshow (Changes every 10 seconds)
+    const bgImages = [
+      'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=1920&q=80', // Coding
+      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1920&q=80', // Robotics
+      'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1920&q=80', // Electronics / Circuits
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80', // STEM Learning
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920&q=80'  // Classroom Tech
+    ];
+
+    let currentBgIndex = 0;
+    const bgElement = document.getElementById('bg-slideshow');
+
+    function changeBackgroundImage() {
+      bgElement.style.backgroundImage = `url('${bgImages[currentBgIndex]}')`;
+      currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+    }
+    changeBackgroundImage();
+    setInterval(changeBackgroundImage, 10000);
+
+    // 2. Typing Effect for Introduction Titles
+    const titles = [
+      "ROBOTICS & STEM EDUCATOR",
+      "COMPUTER SCIENCE EDUCATOR",
+      "CODING INSTRUCTOR",
+      "TECHNOLOGY ENTHUSIAST"
+    ];
+    let titleIndex = 0;
+    let charIndex = 0;
+    const animatedTextEl = document.getElementById('animated-text');
+
+    function typeTitle() {
+      if (charIndex < titles[titleIndex].length) {
+        animatedTextEl.textContent += titles[titleIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeTitle, 75);
+      } else {
+        setTimeout(eraseTitle, 2000);
+      }
+    }
+
+    function eraseTitle() {
+      if (charIndex > 0) {
+        animatedTextEl.textContent = titles[titleIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseTitle, 35);
+      } else {
+        titleIndex = (titleIndex + 1) % titles.length;
+        setTimeout(typeTitle, 400);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', typeTitle);
+
+    // 3. Hamburger Menu & Mobile Navigation Toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // 4. Scroll Highlight for Sticky Navigation
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').includes(current)) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // 5. Copy Phone Number Functionality
+    function copyPhone(phoneNumber) {
+      navigator.clipboard.writeText(phoneNumber).then(() => {
+        alert("Phone number copied to clipboard: " + phoneNumber);
+      }).catch(err => {
+        console.error("Copy failed: ", err);
+      });
+    }
+
+    // 6. Form Submission Validation & Handling
+    const hiringForm = document.getElementById('hiring-form');
+    const formStatus = document.getElementById('form-status');
+
+    hiringForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(hiringForm);
+      
+      formStatus.style.color = 'var(--accent-cyan)';
+      formStatus.textContent = 'Sending application...';
+
+      try {
+        const response = await fetch(hiringForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formStatus.style.color = '#10b981';
+          formStatus.textContent = 'Thank you! Your application message has been sent successfully.';
+          hiringForm.reset();
+        } else {
+          throw new Error('Submission error');
+        }
+      } catch (error) {
+        formStatus.style.color = '#ef4444';
+        formStatus.textContent = 'Submission failed. Please check your internet connection or email directly.';
+      }
+    });
+  </script>
+</body>
+</html>
